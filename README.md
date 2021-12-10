@@ -1,4 +1,4 @@
-#use swagger-ui https://swagger.io/tools/swagger-ui
+#all swagger json
 
 get all the swagger json
 
