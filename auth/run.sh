@@ -1,0 +1,17 @@
+ docker run --name oauth_pkg -d -p 4190:4180 -e OAUTH2_PROXY_CLIENT_ID='<id>' \
+       -e OAUTH2_PROXY_CLIENT_SECRET='<secret>' \
+        -e OAUTH2_PROXY_COOKIE_SECRET='VGlYNVBVOGw4UFgyRURzbERxVTRiZz08' quay.io/oauth2-proxy/oauth2-proxy:latest \
+      --provider=gitlab \
+      --upstream=file:///dev/null \
+      --email-domain='*' \
+      --http-address=0.0.0.0:4180 \
+      --cookie-secure=false \
+      --redirect-url=https://example1.com/oauth2/callback \
+      --skip-provider-button=false \
+      --set-xauthrequest=true \
+      --skip-auth-preflight=false \
+      --skip-oidc-discovery \
+      --oidc-issuer-url=https://gitlab.example.com \
+      --login-url=https://gitlab.example.com/oauth/authorize \
+      --redeem-url=https://gitlab.example.com/oauth/token \
+      --oidc-jwks-url=https://gitlab.example.com/oauth/discovery/keys
